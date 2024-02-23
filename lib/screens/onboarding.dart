@@ -29,10 +29,10 @@ class Onboarding extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Row(
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('- - -')],
+                      children: [Image.asset('assets/scroll-circles.png')],
                     ),
                     Text(
                       'Your One-Stop Pet Shop Experience!',
@@ -50,19 +50,24 @@ class Onboarding extends StatelessWidget {
                           fontWeight: FontWeight.normal,
                           fontSize: 18),
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 52,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                          color: Color(0xFFE8BE13),
-                          borderRadius: BorderRadius.all(Radius.circular(8))),
-                      child: Text('Get Started',
-                          style: GoogleFonts.poppins(
-                              color: const Color.fromARGB(255, 255, 255, 255),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18)),
-                    )
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/shop');
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 52,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                            color: Color(0xFFE8BE13),
+                            borderRadius: BorderRadius.all(Radius.circular(8))),
+                        child: Text('Get Started',
+                            style: GoogleFonts.poppins(
+                                color: const Color.fromARGB(255, 255, 255, 255),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18)),
+                      ),
+                    ),
                   ],
                 ),
               ),

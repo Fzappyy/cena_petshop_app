@@ -1,17 +1,28 @@
+import 'package:cena_petshop_app/provider/cart_provider.dart';
 import 'package:cena_petshop_app/screens/onboarding.dart';
+import 'package:cena_petshop_app/screens/shop.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => CartProvider(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: Onboarding());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Onboarding(),
+        '/shop': (context) => const Shop()
+      },
+    );
   }
 }
